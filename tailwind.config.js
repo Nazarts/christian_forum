@@ -18,7 +18,10 @@ module.exports = {
                     '0%': {transform: 'translateX(120%)'},
                     '10%': {transform: 'translateX(100%)'},
                     '100%': {transform: 'translateX(-150%)'}
-}
+                },
+                underlineText: {
+                    
+                }
             },
             animation: {
                 textTranslate: 'textTranslate 16s linear infinite',
