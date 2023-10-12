@@ -19,9 +19,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'phone',
         'password',
+        'include_sleep_place',
+        'role_id'
     ];
+
+    const REGULAR_USER = 1;
+
+    const ADMIN = 2;
 
     /**
      * The attributes that should be hidden for serialization.

@@ -7,6 +7,12 @@ use Illuminate\View\View;
 
 class AppLayout extends Component
 {
+    public array $scripts;
+
+    public function __construct($scripts=[])
+    {
+        $this->scripts = $scripts;
+    }
     /**
      * Get the view / contents that represents the component.
      */

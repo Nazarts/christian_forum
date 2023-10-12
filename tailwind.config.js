@@ -15,16 +15,15 @@ module.exports = {
             },
             keyframes: {
                 textTranslate: {
-                    '0%': {transform: 'translateX(120%)'},
-                    '10%': {transform: 'translateX(100%)'},
-                    '100%': {transform: 'translateX(-150%)'}
+                    '0%': {left: '100%'},
+                    '100%': {left: '-400%'}
                 },
                 underlineText: {
-                    
+
                 }
             },
             animation: {
-                textTranslate: 'textTranslate 16s linear infinite',
+                textTranslate: 'textTranslate 14s linear infinite running',
             }
         },
     },

@@ -1,0 +1,13 @@
+.input-container[data-error]::after {
+    content: attr(data-error);
+    background: #b45309;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+[x-cloak] {
+    display: none !important;
+}

@@ -8,6 +8,13 @@ use Illuminate\Validation\Rule;
 
 class ProfileUpdateRequest extends FormRequest
 {
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'include_sleep_place' => isset($this->include_sleep_place),
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -16,8 +23,21 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255'],
-            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'name' => ['string', 'max:40'],
+            'email' => ['nullable', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'phone' => ['nullable', 'string', 'max:20', Rule::unique(User::class)->ignore($this->user()->id)],
+            'include_sleep_place' => ['nullable']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.max' => "Максимальна довжина ім'я 40 символів",
+            'email.max' => "Максимальна довжина пошти 255 символів",
+            'email.unique' => "Вибачте, дана пошта вже зайнята",
+            'phone.unique' => "Вибачте, номер вже зайнятий",
+            'email.email' => "Пошта неправильно введена",
         ];
     }
 }
