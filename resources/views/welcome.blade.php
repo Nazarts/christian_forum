@@ -3,6 +3,7 @@
 @endphp
 <x-app-layout :scripts="$scripts">
     <x-slot name="content">
+        <x-error-display></x-error-display>
         <section class="container pt-[50px] px-5 mx-auto flex flex-col lg:flex-row gap-8 justify-between" id="main_page__header">
             <div class="pt-0 xl:pt-10 min-w-[50%]">
                 <p class="text-gray-300 font-semibold text-center text-2xl">03.11 - 04.11</p>
@@ -27,12 +28,12 @@
             </div>
         </section>
         <div class="container px-4 md:px-0 mx-auto mt-[100px]" id="about_forum">
-            <p class="text-[40px] md:text-[56px] bg-amber-100 w-fit ps-4 pe-[100px] font-bold">Про форум</p>
-            <p class="text-center mt-10 text-[20px] text-gray-200">Форум ХДП - це християнський форум дитячих працівників.</p>
-            <p class="text-center mt-2 text-[20px] text-gray-200">Тут ви зможете почути пізнавальні лекції, взяти участь в цікавих практикумах
+            <p class="text-[36px] sm:text-[40px] md:text-[56px] bg-amber-100 w-fit ps-4 pe-[100px] font-bold">Про форум</p>
+            <p class="text-center mt-10 text-[18px] sm:text-[20px] text-gray-200">Форум ХДП - це християнський форум дитячих працівників.</p>
+            <p class="text-center mt-2 text-[18px] sm:text-[20px] text-gray-200">Тут ви зможете почути пізнавальні лекції, взяти участь в цікавих практикумах
                 <br> і, насамперед, духовно збагатитись.</p>
-            <p class="text-center mt-2 text-[20px] text-gray-200">Приємна атмосфера, дружній колектив та coffee break'и гарантують позитивні емоції та спогади:)</p>
-            <ul class="text-center mt-5 text-[20px] md:text-[24px] text-amber-50">
+            <p class="text-center mt-2 text-[18px] sm:text-[20px] text-gray-200">Приємна атмосфера, дружній колектив та coffee break'и гарантують позитивні емоції та спогади:)</p>
+            <ul class="text-center mt-5 text-[18px] sm:text-[20px] md:text-[24px] text-amber-50">
                 <li class="flex items-center justify-center">
                     <div>
                         <svg width="40px" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#c7c7c7}</style><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
@@ -68,14 +69,19 @@
                         <button class="bg-transparent text-[20px] font-semibold text-center text-amber-50 border w-[220px] py-4 border-amber-50">Зареєструватись</button>
                     </div>
                 </form>
-                <div class="bg-[#ac0940] basis-1 order-1 lg:basis-1/2 pt-6 pb-8 px-6">
-                    <p class="text-amber-50 text-[34px] sm:text-[40px] font-bold">Важлива інформація!!!</p>
-                    <p class="text-gray-300 mt-4 font-medium text-[18px]">Перед початком реєстрації уважно прочитайте інформацію нижче</p>
-                    <ul class="mt-4 text-[16px] md:text-[20px] text-amber-50">
+                <div class="bg-[#ffa07a] basis-1 order-1 lg:basis-1/2 pt-6 pb-8 px-6">
+                    <p class="text-[34px] sm:text-[40px] font-bold">Важлива інформація!!!</p>
+                    <p class="mt-4 font-medium text-[18px]">Перед початком реєстрації уважно прочитайте інформацію нижче</p>
+                    <ul class="mt-4 text-[16px] md:text-[20px]">
                         <li class="flex mb-3 items-center">
                             <div class="w-[36px] min-w-[36px] flex items-center h-[36px] bg-[#FFE3E8] me-4 ver p-[6px] rounded-full">
                                 <img height="100%" src="{{asset('images/bill.png')}}" alt="">
-                            </div> Вартість - 500 грн. за 2 дні(проте якщо у вас коштів немає, всеодно реєструйтесь та приїжджайте)</li>
+                            </div>
+                            <span>
+                                Вартість - 500 грн. за 2 дні(якщо у вас виникли фінансові труднощі звертайтесь за <a
+                                    href="#contacts" class="underline decoration-2 decoration-red-900">номером вказаним нижче</a>)
+                            </span>
+                        </li>
                         <li class="flex mb-3 items-center relative">
 
                             <div class="w-[36px] min-w-[36px] flex items-center h-[36px] bg-[#FFE3E8] me-4 ver p-[6px] rounded-full">
@@ -87,19 +93,20 @@
                             </div>
                             <div>У кожного учасника форуму є завдання, які потрібно зробити до початку форуму.
                                 <ul class="ps-10 list-decimal">
-                                    <li>Детально ознайомтесь зі всіма біблійними текстами про Мойсея</li>
-                                    <li>Підготуйте участь на зібрання</li>
+                                    <li>Детально ознайомитись зі всіма біблійними текстами про Мойсея</li>
+                                    <li>Підготувати участь на зібрання</li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
-                    <p class="text-yellow-200 font-bold text-[20px] mt-4">Дата реєстрації: 15.10 - 30.10. К-сть учасників - 70. Встигніть зареєструватись.</p>
+                    <p class="font-bold text-[20px] mt-4">Дата реєстрації: 15.10 - 30.10. К-сть учасників - 70. Встигніть зареєструватись.</p>
                 </div>
             </div>
         </div>
         <div class="container mx-auto mt-[100px] px-4 md:px-0" id="contacts">
-            <p class="text-[40px] md:text-[56px] bg-amber-100 w-fit ps-4 pe-[100px] font-bold">Контакти</p>
-            <p class="mt-10 font-bold text-[24px] md:text-[32px] text-gray-200">Якщо у вас виникли питання можете звертатись за номером телефону: +380681017742</p>
+            <p class="text-[36px] sm:text-[40px] md:text-[56px] bg-amber-100 w-fit ps-4 pe-[100px] font-bold">Контакти</p>
+            <p class="mt-10 font-bold text-[24px] md:text-[32px] text-gray-200">Якщо у вас виникли питання можете звертатись за номером телефону: </p>
+            <p class="mt-1 font-bold text-[24px] md:text-[32px] text-gray-200"><a class="underline decoration-amber-500 decoration-2" href="tel:+380681017742">+380681017742</a> (Назар)</p>
         </div>
         @include('auth.login-modal')
     </x-slot>

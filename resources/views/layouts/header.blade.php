@@ -2,7 +2,7 @@
     <ul class="hidden md:flex items-center gap-5 lg:gap-6 text-[18px] text-amber-50 font-semibold">
         <li class="relative"><a href="/" class="">Головна</a></li>
         <li><a href="{{route('main', '#about_forum')}}">Про форум</a></li>
-        <li><a href="">Контакти</a></li>
+        <li><a href="{{route('main', '#contacts')}}">Контакти</a></li>
         <li><a href="{{route('profile')}}">Особистий кабінет</a></li>
     </ul>
 

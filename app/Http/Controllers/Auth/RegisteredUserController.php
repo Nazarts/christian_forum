@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -30,11 +31,15 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:20', 'unique:'.User::class],
             'password' => ['required', Rules\Password::defaults()],
+        ], [
+            'phone.unique' => 'Цей номер телефону вже зареєстрований. Увійдіть в свій кабінет, або зареєструйте інший.'
         ]);
+
+        $validator->validated();
 
         $user = User::create([
             'name' => $request->name,
